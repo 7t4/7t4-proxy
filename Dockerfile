@@ -83,7 +83,7 @@ RUN echo 'Installing Nginx Modules' && \
 
 FROM nginx:${NGINX_VER}-alpine
 
-LABEL maintainer="Tom Johnson III <tj@74.us>"
+LABEL maintainer="Tom Johnson III <tj@7t4.us>"
 
 # Copy nginx, owasp-modsecurity-crs, and modsecurity from the build image
 COPY --from=build_modsecurity /etc/nginx/ /etc/nginx/

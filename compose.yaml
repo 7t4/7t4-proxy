@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: t3tech/7t4-proxy
+    deploy:
+      replicas: 1
+    ports:
+      - "10080:80"
+      - "10443:443"
+    networks:
+      - web
+    volumes:
+      - app:/usr/share/nginx/html
+
+#  php:
+#    image: andrewnk/base-alpine-php
+#    container_name: php
+#    networks:
+#      - web
+#    volumes:
+#      - app:/var/www/html
+
+volumes:
+  app:
+
+networks:
+  web:
+    driver: overlay

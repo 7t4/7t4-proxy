@@ -6,12 +6,13 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "10080:80"
-      - "10443:443"
+      - "80:80"
+      - "443:443"
     networks:
-      - web
+      - 7t4proxy
     volumes:
-      - app:/usr/share/nginx/html
+      - /mnt/gluster/www:/usr/share/nginx/html
+      - /mnt/gluster/nginx:/etc/nginx
 
 #  php:
 #    image: andrewnk/base-alpine-php
@@ -21,9 +22,6 @@ services:
 #    volumes:
 #      - app:/var/www/html
 
-volumes:
-  app:
-
 networks:
-  web:
+  7t4proxy:
     driver: overlay
